@@ -1,8 +1,27 @@
+
+
+<button *ngIf="dataLoaded==false" class="btn btn-primary" type="button" disabled>
+  <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+  Loading...
+</button>
 <table class="table">
-<tr *ngFor="let product of products">
-  <td>{{product.productId}}</td>
-  <td>{{product.productName}}</td>
-  <td>{{product.categoryId}}</td>
-  <td>{{product.unitPrice}}</td>
-</tr>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>URUN ADI</th>
+      <th>KATEGORI</th>
+      <th>BIRIM FIYAT</th>
+      <th>STOK ADEDI</th>
+    </tr>
+  </thead>
+    <tbody>
+        <tr *ngFor="let product of products">
+            <td>{{product.productId}}</td>
+            <td>{{product.productName}}</td>
+            <td>{{product.categoryId}}</td>
+            <td>{{product.unitPrice}}</td>
+            <td>{{product.unitsInStock}}</td>
+        </tr>
+    </tbody>
+
 </table>
