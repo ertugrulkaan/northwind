@@ -22,6 +22,7 @@
       <th>BIRIM FIYAT</th>
       <th>KDV'LI BIRIM FIYAT FIYAT</th>
       <th>STOK ADEDI</th>
+      <th></th>
     </tr>
   </thead>
     <tbody>
@@ -32,6 +33,7 @@
             <td>{{product.unitPrice| currency:'₺'}}</td>
             <td>{{product.unitPrice | vatAdded:18 | currency:'₺'}}</td>
             <td>{{product.unitsInStock}}</td>
+            <td><button (click)="addToCart(product)" type="button" class="btn btn-success btn-sm">Sepete Ekle</button></td>
         </tr>
     </tbody>
 
