@@ -4,6 +4,15 @@
   <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
   Loading...
 </button>
+
+<div class="mb-3">
+  <label for="filterText" class="form-label">Urun Arama</label>
+  <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Ne Ariyorsun">
+</div>
+<div *ngIf="filterText" class="btn btn-secondary">
+{{filterText}} aradiniz
+</div>
+
 <table class="table">
   <thead>
     <tr>
@@ -11,15 +20,17 @@
       <th>URUN ADI</th>
       <th>KATEGORI</th>
       <th>BIRIM FIYAT</th>
+      <th>KDV'LI BIRIM FIYAT FIYAT</th>
       <th>STOK ADEDI</th>
     </tr>
   </thead>
     <tbody>
-        <tr *ngFor="let product of products">
+        <tr *ngFor="let product of products | filterPipe:filterText">
             <td>{{product.productId}}</td>
-            <td>{{product.productName}}</td>
+            <td>{{product.productName|uppercase}}</td>
             <td>{{product.categoryId}}</td>
-            <td>{{product.unitPrice}}</td>
+            <td>{{product.unitPrice| currency:'₺'}}</td>
+            <td>{{product.unitPrice | vatAdded:18 | currency:'₺'}}</td>
             <td>{{product.unitsInStock}}</td>
         </tr>
     </tbody>
