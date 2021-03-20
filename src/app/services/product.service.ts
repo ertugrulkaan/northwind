@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { ListResponseModel } from '../models/ListResponseModel';
 
 import { Product } from '../models/product';
+import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,8 @@ export class ProductService {
   getProductsByCategoryId(categoryId:number):Observable<ListResponseModel<Product>> {
     let getAllByCategoryIdUrl=this.apiUrl+"products/getbycategoryid?categoryId="+categoryId
     return this.httpClient.get<ListResponseModel<Product>>(getAllByCategoryIdUrl);
+  }
+  add(product:Product):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"products/add",product)
   }
 }
