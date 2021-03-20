@@ -6,10 +6,36 @@
             </div>
             <div class="card-body">
                 <form [formGroup]="productAddForm">
-                    <div class="form-group">
-                        <input type="text" id="productName" formControlName="productName" class="form-control" placeholder="Urun Adi"/>
+                    <div class="mb-3">
+                        <label for="productName">Urun Adi</label>
+                        <div class="form-group">
+                            <input type="text" id="productName" formControlName="productName" class="form-control" placeholder="Urun Adi"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoryId">Kategori Id</label>
+                        <div class="form-group">
+                            <input type="number" id="categoryId" formControlName="categoryId" class="form-control" placeholder="Kategori Id"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="unitsInStock">Stok Sayısı</label>
+                        <div class="form-group">
+                            <input type="number" id="unitsInStock" formControlName="unitsInStock" class="form-control" placeholder="Stok Sayısı"/>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="unitPrice">Birim Fiyat</label>
+                        <div class="form-group">
+                            <input type="number" id="unitPrice" formControlName="unitPrice" class="form-control" placeholder="Birim Fiyat"/>
+                        </div>
                     </div>
                 </form>
+            </div>
+            <div class="card-footer">
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button class="btn btn-success me-md-2" (click)="add()" type="button">Ekle</button>
+                </div>
             </div>
         </div>
     </div>
